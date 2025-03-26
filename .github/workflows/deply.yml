@@ -2,7 +2,7 @@ name: Deploy Jekyll site to Pages
 
 on:
   push:
-    branches: ["prod"]
+    branches: ["prod", "try-deploy]"]
   workflow_dispatch:
 
 permissions:
@@ -24,12 +24,12 @@ jobs:
           submodules: recursive
       - name: Link Submodules
         run: |
-          mkdir _data/commands _includes/commands
+          mkdir -p _data/commands _includes/commands
           ln -s $(pwd)/_submodules/valkey/src/commands $(pwd)/_data/commands/latest
           ln -s $(pwd)/_submodules/valkey-doc/commands $(pwd)/_includes/commands/latest
           ln -s $(pwd)/_submodules/valkey-doc/docs $(pwd)/_includes/docs
       - name: Setup Ruby
-        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: true
