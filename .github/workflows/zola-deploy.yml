@@ -25,13 +25,13 @@ jobs:
       - name: Checkout valkey-doc
         uses: actions/checkout@v4
         with:
-          repository: valkey-io/valkey-doc
+          repository: liorsve/valkey-doc
           path: valkey-doc
 
       - name: Checkout valkey
         uses: actions/checkout@v4
         with:
-          repository: valkey-io/valkey
+          repository: liorsve/valkey
           path: valkey
           
       - name: Init commands, topics and clients
